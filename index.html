@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>nav_music</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	</head>
+	<style type="text/css">
+		.nav
+		{
+			margin: 200px auto;
+			width: 1201px;
+			height: 56px;
+			background: url(img/topbg1.jpg);
+		}
+		
+		.nav ul
+		{
+			margin-left: 300px;
+			width: 748px;
+			height: 56px;
+			text-align: center;
+		}
+		
+		.nav li
+		{
+			width: 100px;
+			height: 56px;
+			list-style: none;
+			float: left;
+			position: relative;
+		}
+		
+		.nav a
+		{
+			text-decoration: none;
+			font-family: "微软雅黑";
+			color: white;
+			font-size: 16px;
+			line-height: 56px;
+			position: relative;
+			z-index: 2;
+			transition:all 0.2s;
+		}
+		
+		.nav li i
+		{
+			display: block;
+			width: 100px;
+			height: 0px;
+			background: rgba(0,0,0,0.2);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			transition: all 0.3s; 
+		}
+		
+		.nav li:hover a
+		{
+			font-size: 20px;
+			transform:rotate(360deg);
+			-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+			color: darkcyan;
+		}
+		
+		.nav li:hover i
+		{
+			height: 56px;
+		}
+	</style>
+	<body>
+		<header>
+			<div class="nav">
+				<ul>
+					<li><a href="#">音乐库</a><i></i></li>
+					<li><a href="#">歌手库</a><i></i></li>
+					<li><a href="#">图库</a><i></i></li>
+					<li><a href="#">歌词</a><i></i></li>
+					<li><a href="#">直播</a><i></i></li>
+					<li><a href="#">网页播放器</a><i></i></li>
+					<li><a href="#">下载KTV</a><i></i></li>
+				</ul>
+			</div>
+		</header>
+		<audio id="music" src="mp3/do.mp3"></audio>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var a = ["mp3/do.mp3","mp3/re.mp3","mp3/mi.mp3","mp3/fa.mp3","mp3/sol.mp3","mp3/la.mp3","mp3/si.mp3"]
+			//alert($);
+			$(".nav li").hover(function(){
+				var index = $(this).index();
+				$("#music").attr("src",a[index]);
+				$("#music").get(0).play();
+			},function(){});
+		</script>
+	</body>
+</html>
